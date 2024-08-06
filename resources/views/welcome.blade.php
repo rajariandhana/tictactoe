@@ -12,6 +12,8 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
+    @vite('resources/css/app.css')
+    @livewireStyles
 </head>
 
 <body>
@@ -20,29 +22,14 @@
         <ul>
             <li>id {{ $game->id }}</li>
             <li>pass {{ $game->pass }}</li>
-                <li>p1 {{ $game->player1->id }} {{ $game->player1->name }}</li>
-                <li>p2 {{ $game->player2->id }} {{ $game->player2->name }}</li>
+            <li>p1 {{ $game->player1->id }} {{ $game->player1->name }}</li>
+            <li>p2 {{ $game->player2->id }} {{ $game->player2->name }}</li>
         </ul>
     @endforeach
-    <table>
-        <tbody>
-            <tr>
-                <td><button>[]</button></td>
-                <td><button>[]</button></td>
-                <td><button>[]</button></td>
-            </tr>
-            <tr>
-                <td><button>[]</button></td>
-                <td><button>[]</button></td>
-                <td><button>[]</button></td>
-            </tr>
-            <tr>
-                <td><button>[]</button></td>
-                <td><button>[]</button></td>
-                <td><button>[]</button></td>
-            </tr>
-        </tbody>
-    </table>
+
+    @livewire('board')
+
+    @livewireScripts
 </body>
 
 </html>

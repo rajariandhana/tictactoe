@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\ChatMessage;
+use App\Models\Game;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -19,7 +20,7 @@ class MessageSent implements ShouldBroadcastNow
     /**
      * Create a new event instance.
      */
-    public function __construct(public ChatMessage $message)
+    public function __construct(public Game $game)
     {
         //
     }
@@ -33,7 +34,7 @@ class MessageSent implements ShouldBroadcastNow
     {
         return [
             // new PrivateChannel('channel-name'),
-            new PrivateChannel("chat.{$this->message->receiver_id}"),
+            new PrivateChannel("game.{$this->game->id}"),
         ];
     }
 }
